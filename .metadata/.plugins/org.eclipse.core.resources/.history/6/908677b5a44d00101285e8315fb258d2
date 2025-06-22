@@ -1,0 +1,25 @@
+package ObserverPatternExample;
+
+class StockMarket {
+    private List<Observer> observers = new ArrayList<>();
+    private float price;
+
+    public void register(Observer o) {
+        observers.add(o);
+    }
+
+    public void remove(Observer o) {
+        observers.remove(o);
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+        notifyAllObservers();
+    }
+
+    private void notifyAllObservers() {
+        for (Observer o : observers) {
+            o.update(price);
+        }
+    }
+}

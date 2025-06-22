@@ -1,0 +1,7 @@
+package AdapterPatternExample;
+
+class RazorPayAdapter {
+    void pay() {
+        System.out.println("Payment via RazorPay");
+    }
+}

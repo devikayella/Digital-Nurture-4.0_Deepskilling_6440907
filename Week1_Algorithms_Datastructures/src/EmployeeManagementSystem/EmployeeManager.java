@@ -1,0 +1,37 @@
+package EmployeeManagementSystem;
+
+class EmployeeManager {
+    Employee[] employees = new Employee[100];
+    int size = 0;
+
+    void addEmployee(Employee emp) {
+        if (size < employees.length) {
+            employees[size++] = emp;
+        }
+    }
+
+    void listEmployees() {
+        for (int i = 0; i < size; i++) {
+            System.out.println(employees[i].name + ", " + employees[i].position);
+        }
+    }
+
+    Employee searchEmployee(int id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].employeeId == id) return employees[i];
+        }
+        return null;
+    }
+
+    void deleteEmployee(int id) {
+        for (int i = 0; i < size; i++) {
+            if (employees[i].employeeId == id) {
+                for (int j = i; j < size - 1; j++) {
+                    employees[j] = employees[j + 1];
+                }
+                employees[--size] = null;
+                break;
+            }
+        }
+    }
+}
